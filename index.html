@@ -24,62 +24,81 @@
 
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Raffles Hall</a>
+            <a class="navbar-brand" href="#"><img alt="Brand" src="img/raffles-hall-icon.png" height="40px"></a>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
 
 
             <ul class="nav navbar-nav">
               <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-              <li><a href="#">Profile</a></li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">RH Committees <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">About Us <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="#"> <STRONG>WASD</STRONG> <small>Website Team</small> </a></li>
-                  <li><a href="#"> <STRONG>Green Committee</STRONG> <small>Garden</small> </a></li>
-                  <li><a href="#"> <STRONG>Cultural Team</STRONG> <small>Performance</small> </a></li>
+                  <li><a href="#"> <STRONG>History</STRONG> <small></small> </a></li>
+                  <li><a href="#"> <STRONG>CCAs</STRONG> <small></small> </a></li>
+                  <li><a href="#"> <STRONG>Amenities</STRONG> <small></small> </a></li>
+                  <li><a href="#"> <STRONG>Room & Facilities</STRONG> <small></small> </a></li>
+                  <li><a href="#"> <STRONG>Location</STRONG> <small></small> </a></li>
+                  <li><a href="#"> <STRONG>Rules & Regulations</STRONG> <small></small> </a></li>
                   <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">One more separated link</a></li>
+                  <li><a href="#"> <STRONG>SCRC</STRONG> </a></li>
+                  <li><a href="#"> <STRONG>JCRC</STRONG> </a></li>
                 </ul>
               </li>
-              <li><a href="#">SCRC</a></li>
-              <li><a href="#">JCRC</a></li>
+              <li><a href="#"> <STRONG>Events & Activities</STRONG> </a></li>
+              <li><a href="#"> <STRONG>FAQ</STRONG> </a></li>
             </ul>
+              
+              <!-- Small modal -->
+        <button type="button" class="btn btn-primary btn-lg navbar-right" data-toggle="modal" data-target="#myModal">
+          Rzone
+        </button>
 
-
-            <form class="navbar-form navbar-right form-inline" role="form">
-              <div class="form-group">
-                <select class="form-control" id="login-type" placeholder="Login as">
-                  <option> <STRONG>Residence</STRONG> <small></small> </option>
-                  <option> <STRONG>Committee President</STRONG> <small></small> </option>
-                  <option> <STRONG>JCRC</STRONG> <small></small> </option>
-                  <option> <STRONG>SCRC</STRONG> <small></small> </option>
-                </select>
+        <div class="modal fade" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Login as ...</h4>
               </div>
-
-              <div class="form-group">
-                  <label class="sr-only" for="user-email">Email address</label>
-                  <input type="email" class="form-control" id="user-email" placeholder="Enter email">
-                
+              <div class="modal-body">
+                  <form id='login-form2' action='account/login.php' method='POST'>
+                    <input class="form-control" id='matric-input2' type='text' name='m' placeholder='Matric No.'>
+                    <button class="btn btn-primary" id='login-button2'>Login with NUS account</button>
+                  </form>
+                  
+                    <script>
+                        var matric_input = document.getElementById('matric-input2');
+                        var button = document.getElementById('login-button2');
+                        var login_form = document.getElementById('login-form2');
+                        button.addEventListener('click', login);
+                        function login() {
+                                    var matric = matric_input.value;
+                                    if (!check_matric(matric)) return;
+                                    login_form.submit();
+                        }
+                        function check_matric(matric) {
+                                    if (matric.length > 9 || matric.length < 8)
+                                    return false;
+                                    return true;
+                        }
+                    </script>
+                  <!-- /.login form -->
+            </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               </div>
-
-              <div class="form-group">
-                <label class="sr-only" for="user-password">Password</label>
-                <input type="password" class="form-control" id="user-password" placeholder="Password">
-              </div>
-              <button type="submit" class="btn btn-default">Sign in</button>
-            </form>
-
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
@@ -91,43 +110,139 @@
       <div class="jumbotron" style="background-color:#FFFFFF">
         <div class="container">
          <div class="row"> 
+             
+             <!-- wall picture -->
+             <div id="carousel-example-generic" class="carousel slide col-xs-12 col-md-12 col-lg-12" data-ride="carousel">
+                  <!-- Indicators -->
+                  <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                  </ol>
 
-            <div class="col-xs-12 col-md-8">
-              <h1><STRONG>Hello world!</STRONG></h1>
-              <h2>New Page will come soon ...</h2>
-              <br>
-              <p><a class="btn btn-primary btn-lg" href="https://www.facebook.com/RafflesHall?ref=eyJzaWQiOiIwLjg2Mzc3Mjk0NDU0NzIzNiIsInFzIjoiSlRWQ0pUSXlVbUZtWm14bGN5VXlNRWhoYkd3bE1qSWxOVVEiLCJndiI6Ijk0YWQwYTU1MTZkN2E4ZDdhOGFlZmIyZjgzYWFmMmU4ZTQyNGIyNTYifQ" role="button">Facebook</a></p>
-            </div>
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                      <img src="img/raffles-view-1.jpg" alt="raffles-view-1">
+                      <div class="carousel-caption">
+                        <div class="col-xs-12 col-md-8">
+                          <h1><STRONG>Hello Raffles!</STRONG></h1>
+                          <h2>where the dream start ...</h2>
+                          <br>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <img src="img/raffles-view-2.jpg" alt="raffles-view-2">
+                      <div class="carousel-caption">
+                        <h1><STRONG>Comm Hall</STRONG></h1>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <img src="img/raffles-view-3.jpg" alt="raffles-view-3">
+                      <div class="carousel-caption">
+                        <h1><STRONG>Happy and Cool</STRONG></h1>
+                      </div>
+                    </div>
+                    ...
+                  </div>
 
-            <div class="col-xs-6 col-md-4">
-              <img src="img/raffles-hall-icon.png" width="300px">
-            </div>
+                  <!-- Controls -->
+                  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+             <!-- /.wall picture -->
 
           </div>
         </div>
       </div>
-
-      <br>
-      <br>
-      <br>
-      <!--Here you can add in the link to your web page file.
-                Just change the '#' into your xxx.html file name-->
-        <div class="panel panel-primary">
-                <div class="panel-body"> Put the name of your link here.
-                        <a href="#"></a>
+      
+      <div class="row">
+            
+          
+          
+          <!-- recent events -->
+            <div class="col-xs-12 col-md-8 col-lg-8">
+                <div class="list-group">
+                  <a href="#" class="list-group-item active">
+                    <h4 class="list-group-item-heading">Raffles Hall Events</h4>
+                    <p class="list-group-item-text">IHG Basketball</p>
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <h4 class="list-group-item-heading">Raffles Hall Events</h4>
+                    <p class="list-group-item-text">IHG Basketball</p>
+                  </a>
                 </div>
-                <div class="panel-footer">
-                        New component.
-                </div>
+            </div>
+            <!-- end of recent events -->
+          
         </div>
+      <!-- end of row -->
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      
+              <div class="input-group navbar-right row">
+              <!-- login form -->
+              <form class="navbar-form navbar-right" id='login-form' action='account/login.php' method='POST'>
+                <div class="form-group">
+                    <input class="form-control" id='matric-input' type='text' name='m' placeholder='Matric No.'>
+                </div>
+                    <button class="btn btn-primary" id='login-button'>Login with NUS account</button>
+              </form>
+                <script>
+                    var matric_input = document.getElementById('matric-input');
+                    var button = document.getElementById('login-button');
+                    var login_form = document.getElementById('login-form');
+                    button.addEventListener('click', login);
+                    function login() {
+                                var matric = matric_input.value;
+                                if (!check_matric(matric)) return;
+                                login_form.submit();
+                    }
+                    function check_matric(matric) {
+                                if (matric.length > 9 || matric.length < 8)
+                                return false;
+                                return true;
+                    }
+                </script>
+              <!-- /.login form -->
+            </div>
+                      <!--  <div class="form-group">
+                            <select class="form-control" id="login-type" placeholder="Login as">
+                              <option> <STRONG>Residence</STRONG> <small></small> </option>
+                              <option> <STRONG>Committee President</STRONG> <small></small> </option>
+                              <option> <STRONG>JCRC</STRONG> <small></small> </option>
+                              <option> <STRONG>SCRC</STRONG> <small></small> </option>
+                            </select>
+                          </div>
+                          
+                          <div class="form-group">
+                              <label class="sr-only" for="user-email">Email address</label>
+                              <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                              <input type="email" class="form-control" id="user-email" placeholder="Enter email">
 
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
+                          </div>
+
+                          <div class="form-group">
+                            <label class="sr-only" for="user-password">Password</label>
+                            <input type="password" class="form-control" id="user-password" placeholder="Password">
+                          </div>
+                          <!-- end of email ... -->
+      -->
       <br>
       <br>
       <br>
@@ -142,6 +257,12 @@
 
 
       <footer>
+          <!-- position of the website -->
+          <ol class="breadcrumb">
+              <li>Home</li>
+          </ol>
+          <!-- end of position -->
+          
         <div class="container-fluid">
           <div class="row">
             <div class="col-xs-6 col-sm-4">
@@ -153,11 +274,11 @@
             </div>
 
             <div class="col-xs-6 col-sm-4"> 
-              
+              <p><a class="btn btn-primary btn-lg" href="https://www.facebook.com/RafflesHall?ref=eyJzaWQiOiIwLjg2Mzc3Mjk0NDU0NzIzNiIsInFzIjoiSlRWQ0pUSXlVbUZtWm14bGN5VXlNRWhoYkd3bE1qSWxOVVEiLCJndiI6Ijk0YWQwYTU1MTZkN2E4ZDdhOGFlZmIyZjgzYWFmMmU4ZTQyNGIyNTYifQ" role="button">Facebook</a></p>
             </div>
 
             <div class="col-xs-6 col-sm-4"> 
-              
+              <p><a class="btn btn-primary btn-lg" href="https://www.facebook.com/RafflesHall?ref=eyJzaWQiOiIwLjg2Mzc3Mjk0NDU0NzIzNiIsInFzIjoiSlRWQ0pUSXlVbUZtWm14bGN5VXlNRWhoYkd3bE1qSWxOVVEiLCJndiI6Ijk0YWQwYTU1MTZkN2E4ZDdhOGFlZmIyZjgzYWFmMmU4ZTQyNGIyNTYifQ" role="button">Google+</a></p>
             </div>
 
           </div> <!-- end of row -->
@@ -171,3 +292,4 @@
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
+
