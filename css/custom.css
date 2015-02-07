@@ -36,3 +36,7 @@
     color: white;
     list-style: none;
 }
+#footer-copyright{
+    display: block;
+    color: white;
+}
