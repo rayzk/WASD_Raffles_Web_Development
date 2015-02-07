@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Raffles Hall</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+
+<!-- Navbar -->
+      <nav class="navbar navbar-default navbar-inverse">
+        <div class="container-fluid">
+
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><img alt="Brand" src="img/raffles-hall-icon.png" height="40px"></a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+
+
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">About Us <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="history.html"> <STRONG>History</STRONG> <small></small> </a></li>
+                  <li><a href="#"> <STRONG>CCAs</STRONG> <small></small> </a></li>
+                  <li><a href="#"> <STRONG>Amenities</STRONG> <small></small> </a></li>
+                  <li><a href="#"> <STRONG>Room & Facilities</STRONG> <small></small> </a></li>
+                  <li><a href="#"> <STRONG>Location</STRONG> <small></small> </a></li>
+                  <li><a href="#"> <STRONG>Rules & Regulations</STRONG> <small></small> </a></li>
+                  <li class="divider"></li>
+                  <li><a href="#"> <STRONG>SCRC</STRONG> </a></li>
+                  <li><a href="#"> <STRONG>JCRC</STRONG> </a></li>
+                </ul>
+              </li>
+              <li><a href="#"> <STRONG>Events & Activities</STRONG> </a></li>
+              <li><a href="#"> <STRONG>FAQ</STRONG> </a></li>
+            </ul>
+              
+              <!-- Small modal -->
+        <button type="button" class="btn btn-primary btn-lg navbar-right" data-toggle="modal" data-target="#myModal">
+          Rzone
+        </button>
+
+        <div class="modal fade" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Login as ...</h4>
+              </div>
+              <div class="modal-body">
+                  <form id='login-form2' action='account/login.php' method='POST'>
+                    <input class="form-control" id='matric-input2' type='text' name='m' placeholder='Matric No.'>
+                    <button class="btn btn-primary" id='login-button2'>Login with NUS account</button>
+                  </form>
+                  
+                    <script>
+                        var matric_input = document.getElementById('matric-input2');
+                        var button = document.getElementById('login-button2');
+                        var login_form = document.getElementById('login-form2');
+                        button.addEventListener('click', login);
+                        function login() {
+                                    var matric = matric_input.value;
+                                    if (!check_matric(matric)) return;
+                                    login_form.submit();
+                        }
+                        function check_matric(matric) {
+                                    if (matric.length > 9 || matric.length < 8)
+                                    return false;
+                                    return true;
+                        }
+                    </script>
+                  <!-- /.login form -->
+            </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+<p style="text-align: center;"><font size="6"><strong style="font-size: 125%;">RAFFLES HISTORY</strong></font></p>
+<p><font size="5">Raffles Hall was the one of the first halls to be established in the National University of Singapore (NUS), and consequently has a long and rich history.</p>
+
+<p><font size="5">Founded in 1958, Raffles Hall was originally located in Nassim Road, Bukit Timah, alongside Eusoff College. At the time, Raffles Hall was an all boys hall, while Eusoff was for the ladies. However, due to an increase in the number of female students, Raffles Hall officially became co-ed in 1975.</p>
+
+<p><font size="5">Then, in the 1981, NUS shifted from the Bukit Timah campus to the current Kent Ridge campus. Kent Ridge Hall and Sheares Hall were already on campus at the time, and the convenience of these new halls took its toll on the residential numbers in RH. Consequently, Raffles Hall bade Nassim Road farewell and moved to the Kent Ridge campus in 1984.</p>
+
+<p><font size="5">Whereas Nassim could only hold 250-odd residents, Raffles Hall at its new site is almost twice that size. New kids on campus with nothing much to show, spurred on by the old and the new, dreamers and makers began to bud, setting in motion the cogs of our tradition and history…</p>
+
+<p><font size="5">Raffles Hall has its roots in Raffles College, which was one of the institutes of higher learning that merged to eventually form the National University of Singapore (the other being King Edward VII college). Raffles Hall was also modelled after the colleges at Oxford and Cambridge, and hence many of their traditions trickled down to us. The positions of the Master, Resident Fellows, Junior Common Room Committees (JCRCs) and Senior Common Room Committees (SCRCs) all stemmed from those origins. And although “Raffles” is a common name for many institutions and organisations in Singapore, Raffles Hall is in no way affiliated to them.</font><p>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
