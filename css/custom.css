@@ -1,0 +1,38 @@
+#footer{
+    background-image: url(../img/bg-footer.jpg);
+    display: block;
+    height: 400px;
+    width: auto;
+    margin: auto;
+    padding-bottom: 0px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 50px;
+}
+#footer-container{
+    display: block;
+    height: auto;
+    width: auto;
+    margin: 0px, 40px;
+    padding-bottom: 0px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 0px;
+}
+#footer-index-bar{
+    display: block;
+    color: black;
+}
+#footer-row{
+    display: block;
+    color: white;
+    padding-bottom: 0px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 0px;
+}
+#footer-list{
+    display: block;
+    color: white;
+    list-style: none;
+}
