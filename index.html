@@ -7,7 +7,9 @@
     <title>Raffles Hall</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -15,9 +17,28 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+      
+    <!-- Google Maps -->
+    <style type="text/css">
+      html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVx57lpkm1nmBjcGxpLuHVLIfa1VnFB68">
+    </script>
+    <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: { lat: -34.397, lng: 150.644},
+          zoom: 8
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
   </head>
   <body>
-
+      
       <!-- Navbar -->
       <nav class="navbar navbar-default navbar-inverse">
         <div class="container-fluid">
@@ -35,8 +56,6 @@
 
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
-
-
             <ul class="nav navbar-nav">
               <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
               <li class="dropdown">
@@ -57,57 +76,63 @@
               <li><a href="#"> <STRONG>FAQ</STRONG> </a></li>
             </ul>
               
-              <!-- Small modal -->
-        <button type="button" class="btn btn-primary btn-lg navbar-right" data-toggle="modal" data-target="#myModal">
-          Rzone
-        </button>
+              <!-- Rzone Button -->
+            <button type="button" class="btn btn-primary btn-lg navbar-right" data-toggle="modal" data-target="#myModal">
+              Rzone
+            </button>
 
-        <div class="modal fade" id="myModal">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Login as ...</h4>
-              </div>
-              <div class="modal-body">
-                  <form id='login-form2' action='account/login.php' method='POST'>
-                    <input class="form-control" id='matric-input2' type='text' name='m' placeholder='Matric No.'>
-                    <button class="btn btn-primary" id='login-button2'>Login with NUS account</button>
-                  </form>
-                  
-                    <script>
-                        var matric_input = document.getElementById('matric-input2');
-                        var button = document.getElementById('login-button2');
-                        var login_form = document.getElementById('login-form2');
-                        button.addEventListener('click', login);
-                        function login() {
-                                    var matric = matric_input.value;
-                                    if (!check_matric(matric)) return;
-                                    login_form.submit();
-                        }
-                        function check_matric(matric) {
-                                    if (matric.length > 9 || matric.length < 8)
-                                    return false;
-                                    return true;
-                        }
-                    </script>
-                  <!-- /.login form -->
-            </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </div><!-- /.modal-content -->
-          </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
+            <div class="modal fade" id="myModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Login as ...</h4>
+                  </div>
+                  <div class="modal-body">
+                      <form id='login-form2' action='account/login.php' method='POST'>
+                        <input class="form-control" id='matric-input2' type='text' name='m' placeholder='Matric No.'>
+                        <button class="btn btn-primary" id='login-button2'>Login with NUS account</button>
+                      </form>
+
+                        <script>
+                            var matric_input = document.getElementById('matric-input2');
+                            var button = document.getElementById('login-button2');
+                            var login_form = document.getElementById('login-form2');
+                            button.addEventListener('click', login);
+                            function login() {
+                                        var matric = matric_input.value;
+                                        if (!check_matric(matric)) return;
+                                        login_form.submit();
+                            }
+                            function check_matric(matric) {
+                                        if (matric.length > 9 || matric.length < 8)
+                                        return false;
+                                        return true;
+                            }
+                        </script>
+                      <!-- /.login form -->
+                </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
-
-
-
-
+      
+      <div class="container-fluid" id="index-container">
+          
+          <!-- page 1 -->
+        <div class="panel col-md-12 col-sm-12 col-xs-12 ">
+            <img src="img/page_1_bg.jpg" class="img-rounded img-responsive" alt="Cinque Terre">
+        </div>
+          
+          
+          <div class="panel">
       <!-- this component will extend to the whole page -->
-      <div class="jumbotron" style="background-color:#FFFFFF">
+      <div class="jumbotron col-md-12 col-sm-12 col-xs-12" id="seg-bg-1">
         <div class="container">
          <div class="row"> 
              
@@ -144,7 +169,7 @@
                         <h1><STRONG>Happy and Cool</STRONG></h1>
                       </div>
                     </div>
-                    ...
+                    Raffles Hall Gallery
                   </div>
 
                   <!-- Controls -->
@@ -162,65 +187,123 @@
           </div>
         </div>
       </div>
-      
-      <div class="row">
-            
+    
+     
+          </div>
           
-          
-          <!-- recent events -->
-            <div class="col-xs-12 col-md-8 col-lg-8">
-                <div class="list-group">
-                  <a href="#" class="list-group-item active">
-                    <h4 class="list-group-item-heading">Raffles Hall Events</h4>
-                    <p class="list-group-item-text">IHG Basketball</p>
-                  </a>
-                  <a href="#" class="list-group-item">
-                    <h4 class="list-group-item-heading">Raffles Hall Events</h4>
-                    <p class="list-group-item-text">IHG Basketball</p>
-                  </a>
+          <div class="panel">
+        <div class="jumbotron" id="picture-wall">
+              <div class="row">
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="thumbnail">
+                  <img src="..." alt="...">
+                  <div class="caption">
+                    <h3>Here is the picture of CCA</h3>
+                    <p>...</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                  </div>
                 </div>
+              </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="thumbnail">
+                  <img src="..." alt="...">
+                  <div class="caption">
+                    <h3>Here is the picture of CCA</h3>
+                    <p>...</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                  </div>
+                </div>
+              </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="thumbnail">
+                  <img src="..." alt="...">
+                  <div class="caption">
+                    <h3>Here is the picture of CCA</h3>
+                    <p>...</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                  </div>
+                </div>
+              </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="thumbnail">
+                  <img src="..." alt="...">
+                  <div class="caption">
+                    <h3>Here is the picture of CCA</h3>
+                    <p>...</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <!-- end of recent events -->
-          
         </div>
-      <!-- end of row -->
+</div>
+          
+          
+          
+          
+          <div class="panel">
+              <div class="panel-heading">
+    <h3 class="panel-title">Panel title</h3>
+  </div>
+        <div class="jumbotron" id="picture-wall">
+              <div class="row">
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="thumbnail">
+                  <img src="..." alt="...">
+                  <div class="caption">
+                    <h3>Here is the picture of CCA</h3>
+                    <p>...</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                  </div>
+                </div>
+              </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="thumbnail">
+                  <img src="..." alt="...">
+                  <div class="caption">
+                    <h3>Here is the picture of CCA</h3>
+                    <p>...</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                  </div>
+                </div>
+              </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="thumbnail">
+                  <img src="..." alt="...">
+                  <div class="caption">
+                    <h3>Here is the picture of CCA</h3>
+                    <p>...</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                  </div>
+                </div>
+              </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="thumbnail">
+                  <img src="..." alt="...">
+                  <div class="caption">
+                    <h3>Here is the picture of CCA</h3>
+                    <p>...</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+</div>
       <br>
       <br>
       <br>
+          
       <br>
       <br>
+      
       <br>
       <br>
       <br>
       <br>
       <br>
       
-              <div class="input-group navbar-right row">
-              <!-- login form -->
-              <form class="navbar-form navbar-right" id='login-form' action='account/login.php' method='POST'>
-                <div class="form-group">
-                    <input class="form-control" id='matric-input' type='text' name='m' placeholder='Matric No.'>
-                </div>
-                    <button class="btn btn-primary" id='login-button'>Login with NUS account</button>
-              </form>
-                <script>
-                    var matric_input = document.getElementById('matric-input');
-                    var button = document.getElementById('login-button');
-                    var login_form = document.getElementById('login-form');
-                    button.addEventListener('click', login);
-                    function login() {
-                                var matric = matric_input.value;
-                                if (!check_matric(matric)) return;
-                                login_form.submit();
-                    }
-                    function check_matric(matric) {
-                                if (matric.length > 9 || matric.length < 8)
-                                return false;
-                                return true;
-                    }
-                </script>
-              <!-- /.login form -->
-            </div>
+              
                       <!--  <div class="form-group">
                             <select class="form-control" id="login-type" placeholder="Login as">
                               <option> <STRONG>Residence</STRONG> <small></small> </option>
@@ -242,50 +325,72 @@
                             <input type="password" class="form-control" id="user-password" placeholder="Password">
                           </div>
                           <!-- end of email ... -->
-      -->
+      
       <br>
       <br>
       <br>
+      
+        <!--<div id="map-canvas"></div>-->
+       
       <br>
       <br>
-      <br>
+      <br>  
       <br>
 
 
 
 
 
-
-      <footer>
-          <!-- position of the website -->
-          <ol class="breadcrumb">
-              <li>Home</li>
-          </ol>
-          <!-- end of position -->
+          </div> <!-- end of container -->
+        <div id="footer">
+        <div  id="footer-container">
+          <div class="container-fluid">
+              <div class="row">
+                  <!-- position index bar over footer -->
+                  <div class="col-lg-12 col-xs-12 col-sm-12" id="footer-index-bar">
+                      <!-- position of the website -->
+                      <ol class="breadcrumb">
+                          <li>Home</li>
+                      </ol>
+                      <!-- end of position -->
+                  </div>
           
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-xs-6 col-sm-4">
-              <address class="section-title"> 
-                <STRONG> Raffles Hall </STRONG><br>
-                19 Kent Ridge Crescent, 119278<br>
-                <abbr title="Phone">P:</abbr> (+65) 6516 2078
-              </address>
+                
+                  <div class="row" id="footer-row">
+                    <div class="col-xs-3 col-sm-3 col_lg-3">
+                      <address class="section-title"> 
+                        <STRONG> Raffles Hall </STRONG><br>
+                        19 Kent Ridge Crescent, 119278<br>
+                        <abbr title="Phone">P:</abbr> (+65) 6516 2078
+                      </address>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-lg-3">
+                      <h4>Developer Team</h4>
+                        <ul id="footer-list">
+                            <li>WASD</li>
+                            <li>Members</li>
+                            <li>Contributors</li>
+                            <li>Porta ac consectetur ac</li>
+                            <li>Vestibulum at eros</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-xs-3 col-sm-3 col_lg-6"> 
+                      <p><a class="btn btn-primary btn-lg" href="https://www.facebook.com/RafflesHall?ref=eyJzaWQiOiIwLjg2Mzc3Mjk0NDU0NzIzNiIsInFzIjoiSlRWQ0pUSXlVbUZtWm14bGN5VXlNRWhoYkd3bE1qSWxOVVEiLCJndiI6Ijk0YWQwYTU1MTZkN2E4ZDdhOGFlZmIyZjgzYWFmMmU4ZTQyNGIyNTYifQ" role="button">Facebook</a></p>
+                    </div>
+
+                    <div class="col-xs-3 col-sm-3 col_lg-6"> 
+                      <p><a class="btn btn-primary btn-lg" href="https://www.facebook.com/RafflesHall?ref=eyJzaWQiOiIwLjg2Mzc3Mjk0NDU0NzIzNiIsInFzIjoiSlRWQ0pUSXlVbUZtWm14bGN5VXlNRWhoYkd3bE1qSWxOVVEiLCJndiI6Ijk0YWQwYTU1MTZkN2E4ZDdhOGFlZmIyZjgzYWFmMmU4ZTQyNGIyNTYifQ" role="button">Google+</a></p>
+                    </div>
+
+                  </div> <!-- end of row -->
+              </div>
+              </div>
             </div>
-
-            <div class="col-xs-6 col-sm-4"> 
-              <p><a class="btn btn-primary btn-lg" href="https://www.facebook.com/RafflesHall?ref=eyJzaWQiOiIwLjg2Mzc3Mjk0NDU0NzIzNiIsInFzIjoiSlRWQ0pUSXlVbUZtWm14bGN5VXlNRWhoYkd3bE1qSWxOVVEiLCJndiI6Ijk0YWQwYTU1MTZkN2E4ZDdhOGFlZmIyZjgzYWFmMmU4ZTQyNGIyNTYifQ" role="button">Facebook</a></p>
             </div>
-
-            <div class="col-xs-6 col-sm-4"> 
-              <p><a class="btn btn-primary btn-lg" href="https://www.facebook.com/RafflesHall?ref=eyJzaWQiOiIwLjg2Mzc3Mjk0NDU0NzIzNiIsInFzIjoiSlRWQ0pUSXlVbUZtWm14bGN5VXlNRWhoYkd3bE1qSWxOVVEiLCJndiI6Ijk0YWQwYTU1MTZkN2E4ZDdhOGFlZmIyZjgzYWFmMmU4ZTQyNGIyNTYifQ" role="button">Google+</a></p>
-            </div>
-
-          </div> <!-- end of row -->
-        </div> <!-- end of container -->
-        
-      </footer>
-
+              
+              
+              
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
