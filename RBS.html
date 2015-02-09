@@ -5,9 +5,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rzone</title>
-
-  <!-- Bootstrap -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -17,134 +19,54 @@
       <![endif]-->
     </head>
     <body>
-
-      <!-- Navbar -->
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-
-          <ul class="nav nav-tabs" role="tablist" id="myTab">
-            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Welcome </a></li>
-            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages <span class="badge">4</span></a></li>
-            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings </a></li>
-          </ul>
-
-          <div role="tabpanel" class="tab-pane" id="home">
+        
+        
+        
+        <div class="panel" id="p">
+        <table class="table table-bordered" id="table">
+        </table>
+        
+         </div>
+        <script>
             
-            </div>
-
-
-
-              <!-- profile component -->
-              <div role="tabpanel" class="tab-pane" id="profile">
-                <div class="jumbotron">
-                 <div class="row">
-                  <!-- personal picture -->
-                  <div class="col-sm-4 col-md-4">
-                    <div class="thumbnail">
-                      <img src="img/hall_master.jpg" alt="">
-                      <div class="caption">
-                        <h3> Stamford Raffles </h3>
-                        <blockquote class="blockquote">
-                          <small>I found Singapore!</small>
-                        </blockquote>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- /.personal picture -->
-
-                  <!-- personal info -->
-                  <div class="row col-sm-8 col-md-8">
-                    <div class="panel panel-primary">
-                      <div class="panel-heading">
-                        <h3 class="panel-title">Information</h3>
-                      </div>
-                      <div class="panel-body">
-                        <p><strong> Stamford Raffles </strong></p>
-                        <p><strong> SRaffles@gmail.com </strong></p>
-
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Change name</button>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                          <div class="modal-dialog">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title" id="myModalLabel">Change Info :</h4>
-                              </div>
-                              <div class="modal-body">
-                                <form>
-                                  <div class="form-group">
-                                    <label for="first-name" class="control-label">First name :</label>
-                                    <input type="text" class="form-control" id="first-name">
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="last-name" class="control-label">Last name :</label>
-                                    <input type="text" class="form-control" id="last-name"></textarea>
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="email" class="control-label">Email address :</label>
-                                    <input type="email" class="form-control" id="email"></textarea>
-                                  </div>
-                                </form>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-
-
-                      </div>
-                    </div>
-                    <!-- /.personal info -->
-
-                    <!-- CCA info -->
-                    <div class="panel panel-default">
-                      <div class="panel-heading">
-                        <h3 class="panel-title">CCA information</h3>
-                      </div>
-                      <div class="panel-body">
-                        Panel content
-                      </div>
-                    </div>
-                    <!-- /.CCA info -->
-                  </div>
-
-
-                </div>
-              </div>
-
-            </div>
-            <!-- /.profile component -->
-
-            <div role="tabpanel" class="tab-pane" id="messages"></div>
-            <div role="tabpanel" class="tab-pane" id="settings">...</div>
-          </div>
-
-          <script>
-          $(function () {
-            $('#myTab a:last').tab('show')
-          })
-          </script>
-
-        </div><!-- /.container-fluid -->
-      </nav>
-
-
-
-
-      <!-- this component will extend to the whole page -->
-      <div class="jumbotron" style="background-color:#FFFFFF">
-
-      </div>
-
-
+            var xhr = new XMLHttpRequest();
+            xhr.onload = on_load;
+            xhr.open('GET', 'http://raffles.nus.edu.sg/rbs/roominfo.php', true);
+            xhr.send();
+            
+            function on_load(e) {
+                    var obj = JSON.parse(xhr.responseText);
+                    
+                    var block_num = Object.keys(obj);
+                    for (var j in block_num){
+                        var tr = document.createElement("tr");
+                        room = Object.keys(obj[block_num[j]]);
+                        for (var r in room){
+                            var td_owner = document.createElement("td");
+                            var td_type = document.createElement("td");
+                            var td_pts = document.createElement("td");
+                            
+                            var owner = obj[block_num[j]][room[r]].owner_matric;
+                            var type = obj[block_num[j]][room[r]].type;
+                            var pts = obj[block_num[j]][room[r]].pts;
+                            
+                            td_owner.innerHTML = owner;
+                            td_type.innerHTML = type;
+                            td_pts.innerHTML = pts;
+                            
+                            tr.appendChild(td_owner);
+                            tr.appendChild(td_type);
+                            tr.appendChild(td_pts);
+                        }
+                        
+                        document.getElementById("table").appendChild(tr);
+                    }
+                
+                   
+                    console.log(JSON.parse(xhr.responseText));
+            }
+        
+        </script>
       <br>
       <br>
       <br>
@@ -166,42 +88,10 @@
 
 
 
-
-      <footer>
-        <!-- position of the website -->
-        <ol class="breadcrumb">
-          <li>Home</li>
-          <li>Rzone</li>
-        </ol>
-        <!-- end of position -->
-
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-xs-6 col-sm-4">
-              <address class="section-title"> 
-                <STRONG> Raffles Hall </STRONG><br>
-                19 Kent Ridge Crescent, 119278<br>
-                <abbr title="Phone">P:</abbr> (+65) 6516 2078
-              </address>
-            </div>
-
-            <div class="col-xs-6 col-sm-4"> 
-              <p><a class="btn btn-primary btn-lg" href="https://www.facebook.com/RafflesHall?ref=eyJzaWQiOiIwLjg2Mzc3Mjk0NDU0NzIzNiIsInFzIjoiSlRWQ0pUSXlVbUZtWm14bGN5VXlNRWhoYkd3bE1qSWxOVVEiLCJndiI6Ijk0YWQwYTU1MTZkN2E4ZDdhOGFlZmIyZjgzYWFmMmU4ZTQyNGIyNTYifQ" role="button">Facebook</a></p>
-            </div>
-
-            <div class="col-xs-6 col-sm-4"> 
-              <p><a class="btn btn-primary btn-lg" href="https://www.facebook.com/RafflesHall?ref=eyJzaWQiOiIwLjg2Mzc3Mjk0NDU0NzIzNiIsInFzIjoiSlRWQ0pUSXlVbUZtWm14bGN5VXlNRWhoYkd3bE1qSWxOVVEiLCJndiI6Ijk0YWQwYTU1MTZkN2E4ZDdhOGFlZmIyZjgzYWFmMmU4ZTQyNGIyNTYifQ" role="button">Google+</a></p>
-            </div>
-
-          </div> <!-- end of row -->
-        </div> <!-- end of container -->
-
-      </footer>
-
-      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-      <!-- Include all compiled plugins (below), or include individual files as needed -->
-      <script src="js/bootstrap.min.js"></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
     </body>
     </html>
 

@@ -6073,8 +6073,8 @@ button.close {
          -o-transition:      -o-transform .6s ease-in-out;
             transition:         transform .6s ease-in-out;
 
-    -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
+    -webkit-backface-visibility: hidden ;
+            backface-visibility: hidden ;
     -webkit-perspective: 1000;
             perspective: 1000;
   }

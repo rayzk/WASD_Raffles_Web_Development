@@ -4,13 +4,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Raffles Hall WASD" />
     <title>Raffles Hall</title>
-
+      
     <!-- Bootstrap -->
-    
     <link href="css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
-
+    <!-- /.Bootstrap -->
+      
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -19,29 +20,30 @@
     <![endif]-->
       
     <!-- Google Maps -->
-    <style type="text/css">
-      html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
-    </style>
-    <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVx57lpkm1nmBjcGxpLuHVLIfa1VnFB68">
-    </script>
-    <script type="text/javascript">
-      function initialize() {
-        var mapOptions = {
-          center: { lat: -34.397, lng: 150.644},
-          zoom: 8
-        };
-        var map = new google.maps.Map(document.getElementById('map-canvas'),
-            mapOptions);
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
+        <style type="text/css">
+          html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+        </style>
+        <script type="text/javascript"
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVx57lpkm1nmBjcGxpLuHVLIfa1VnFB68">
+        </script>
+        <script type="text/javascript">
+          function initialize() {
+            var mapOptions = {
+              center: { lat: -34.397, lng: 150.644},
+              zoom: 8
+            };
+            var map = new google.maps.Map(document.getElementById('map-canvas'),
+                mapOptions);
+          }
+          google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
+    <!-- /.Google Maps -->
   </head>
   <body>
       
       <!-- Navbar -->
-      <nav class="navbar navbar-default navbar-inverse">
-        <div class="container-fluid">
+      <nav class="navbar navbar-default" id="navbar">
+        <div class="container-fluid" id="navbar-container">
 
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
@@ -76,11 +78,13 @@
               <li><a href="#"> <STRONG>FAQ</STRONG> </a></li>
             </ul>
               
-              <!-- Rzone Button -->
+            <!-- Rzone Button -->
             <button type="button" class="btn btn-primary btn-lg navbar-right" data-toggle="modal" data-target="#myModal">
               Rzone
             </button>
-
+            <!-- /.Rzone Button -->
+              
+            <!-- Rzone Button Content -->
             <div class="modal fade" id="myModal">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -111,231 +115,157 @@
                             }
                         </script>
                       <!-- /.login form -->
-                </div>
+                  </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                   </div>
                 </div><!-- /.modal-content -->
               </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
+            </div><!-- /.Rzone Button Content -->
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
       
-      <div class="container-fluid" id="index-container">
-          
-          <!-- page 1 -->
-        <div class="panel col-md-12 col-sm-12 col-xs-12 ">
-            <img src="img/page_1_bg.jpg" class="img-rounded img-responsive" alt="Cinque Terre">
-        </div>
-          
-          
-          <div class="panel">
-      <!-- this component will extend to the whole page -->
-      <div class="jumbotron col-md-12 col-sm-12 col-xs-12" id="seg-bg-1">
-        <div class="container">
-         <div class="row"> 
-             
-             <!-- wall picture -->
-             <div id="carousel-example-generic" class="carousel slide col-xs-12 col-md-12 col-lg-12" data-ride="carousel">
-                  <!-- Indicators -->
-                  <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                  </ol>
-
-                  <!-- Wrapper for slides -->
-                  <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                      <img src="img/raffles-view-1.jpg" alt="raffles-view-1">
-                      <div class="carousel-caption">
-                        <div class="col-xs-12 col-md-8">
-                          <h1><STRONG>Hello Raffles!</STRONG></h1>
-                          <h2>where the dream start ...</h2>
-                          <br>
+      <div id="video-page">
+          <video autoplay loop poster="img/raffles-view-2.jpg" id="bgvid">
+            <source src="video/RH_Video.mp4" type="video/mp4">      
+          </video>
+          <div id="video-text">
+              <h1>  WELCOME HOME    </h1>
+              <p>   Raffles Hall    </p>
+          </div>
+      </div>
+      
+      <div class="container-fluid" id="gallary">
+            <!-- committee panel -->
+            <div class="panel">
+                <div id="cca-page-text">
+                    <h1>CCA Activity</h1>
+                </div>
+                <div class="jumbotron" id="picture-wall">
+                      <div class="row">
+                      <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div id="cca-pic1">
+                          <img src="img/cca-1.jpg" class="img-thumbnail ccs-picture">
+                        </div>
+                      </div>
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div id="cca-pic2">
+                          <img src="img/cca-2.jpg" class="img-thumbnail ccs-picture">
+                        </div>
+                      </div>
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div id=cca-pic3>
+                          <img src="img/cca-3.jpg" class="img-thumbnail ccs-picture">
+                        </div>
+                      </div>
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div id="cca-pic4">
+                          <img src="img/hall_master.jpg" class="img-thumbnail ccs-picture">
                         </div>
                       </div>
                     </div>
-                    <div class="item">
-                      <img src="img/raffles-view-2.jpg" alt="raffles-view-2">
-                      <div class="carousel-caption">
-                        <h1><STRONG>Comm Hall</STRONG></h1>
+                </div>
+        </div>
+          <!-- /.committee panel -->
+
+
+
+                  <div class="panel">
+                      <div class="panel-heading">
+            <h3 class="panel-title">Panel title</h3>
+          </div>
+                <div class="jumbotron" id="picture-wall">
+                      <div class="row">
+                      <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="thumbnail">
+                          <img src="..." alt="...">
+                          <div class="caption">
+                            <h3>Here is the picture of CCA</h3>
+                            <p>...</p>
+                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="thumbnail">
+                          <img src="..." alt="...">
+                          <div class="caption">
+                            <h3>Here is the picture of CCA</h3>
+                            <p>...</p>
+                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="thumbnail">
+                          <img src="..." alt="...">
+                          <div class="caption">
+                            <h3>Here is the picture of CCA</h3>
+                            <p>...</p>
+                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="thumbnail">
+                          <img src="..." alt="...">
+                          <div class="caption">
+                            <h3>Here is the picture of CCA</h3>
+                            <p>...</p>
+                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <div class="item">
-                      <img src="img/raffles-view-3.jpg" alt="raffles-view-3">
-                      <div class="carousel-caption">
-                        <h1><STRONG>Happy and Cool</STRONG></h1>
-                      </div>
-                    </div>
-                    Raffles Hall Gallery
-                  </div>
-
-                  <!-- Controls -->
-                  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                  </a>
                 </div>
-             <!-- /.wall picture -->
-
-          </div>
         </div>
-      </div>
-    
-     
-          </div>
-          
-          <div class="panel">
-        <div class="jumbotron" id="picture-wall">
-              <div class="row">
-              <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="thumbnail">
-                  <img src="..." alt="...">
-                  <div class="caption">
-                    <h3>Here is the picture of CCA</h3>
-                    <p>...</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                  </div>
-                </div>
-              </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="thumbnail">
-                  <img src="..." alt="...">
-                  <div class="caption">
-                    <h3>Here is the picture of CCA</h3>
-                    <p>...</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                  </div>
-                </div>
-              </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="thumbnail">
-                  <img src="..." alt="...">
-                  <div class="caption">
-                    <h3>Here is the picture of CCA</h3>
-                    <p>...</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                  </div>
-                </div>
-              </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="thumbnail">
-                  <img src="..." alt="...">
-                  <div class="caption">
-                    <h3>Here is the picture of CCA</h3>
-                    <p>...</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
-</div>
-          
-          
-          
-          
-          <div class="panel">
-              <div class="panel-heading">
-    <h3 class="panel-title">Panel title</h3>
-  </div>
-        <div class="jumbotron" id="picture-wall">
-              <div class="row">
-              <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="thumbnail">
-                  <img src="..." alt="...">
-                  <div class="caption">
-                    <h3>Here is the picture of CCA</h3>
-                    <p>...</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                  </div>
-                </div>
-              </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="thumbnail">
-                  <img src="..." alt="...">
-                  <div class="caption">
-                    <h3>Here is the picture of CCA</h3>
-                    <p>...</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                  </div>
-                </div>
-              </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="thumbnail">
-                  <img src="..." alt="...">
-                  <div class="caption">
-                    <h3>Here is the picture of CCA</h3>
-                    <p>...</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                  </div>
-                </div>
-              </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="thumbnail">
-                  <img src="..." alt="...">
-                  <div class="caption">
-                    <h3>Here is the picture of CCA</h3>
-                    <p>...</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
-</div>
-      <br>
-      <br>
-      <br>
-          
-      <br>
-      <br>
-      
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      
-              
-                      <!--  <div class="form-group">
-                            <select class="form-control" id="login-type" placeholder="Login as">
-                              <option> <STRONG>Residence</STRONG> <small></small> </option>
-                              <option> <STRONG>Committee President</STRONG> <small></small> </option>
-                              <option> <STRONG>JCRC</STRONG> <small></small> </option>
-                              <option> <STRONG>SCRC</STRONG> <small></small> </option>
-                            </select>
-                          </div>
-                          
-                          <div class="form-group">
-                              <label class="sr-only" for="user-email">Email address</label>
-                              <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                              <input type="email" class="form-control" id="user-email" placeholder="Enter email">
+              <br>
+              <br>
+              <br>
 
-                          </div>
+              <br>
+              <br>
 
-                          <div class="form-group">
-                            <label class="sr-only" for="user-password">Password</label>
-                            <input type="password" class="form-control" id="user-password" placeholder="Password">
-                          </div>
-                          <!-- end of email ... -->
-      
-      <br>
-      <br>
-      <br>
-      
-        <!--<div id="map-canvas"></div>-->
-       
-      <br>
-      <br>
-      <br>  
-      <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+
+
+                              <!--  <div class="form-group">
+                                    <select class="form-control" id="login-type" placeholder="Login as">
+                                      <option> <STRONG>Residence</STRONG> <small></small> </option>
+                                      <option> <STRONG>Committee President</STRONG> <small></small> </option>
+                                      <option> <STRONG>JCRC</STRONG> <small></small> </option>
+                                      <option> <STRONG>SCRC</STRONG> <small></small> </option>
+                                    </select>
+                                  </div>
+
+                                  <div class="form-group">
+                                      <label class="sr-only" for="user-email">Email address</label>
+                                      <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                                      <input type="email" class="form-control" id="user-email" placeholder="Enter email">
+
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label class="sr-only" for="user-password">Password</label>
+                                    <input type="password" class="form-control" id="user-password" placeholder="Password">
+                                  </div>
+                                  <!-- end of email ... -->
+
+              <br>
+              <br>
+              <br>
+
+                <!--<div id="map-canvas"></div>-->
+
+              <br>
+              <br>
+              <br>  
+              <br>
 
 
 
